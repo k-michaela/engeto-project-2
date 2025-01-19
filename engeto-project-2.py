@@ -21,13 +21,16 @@ Let's play a bulls and cows game.
 {separator}
 Enter a number: """
 )
-   
 
 
-
-
-# random digit generation
-
+# random number generation
+def generate_random_number():
+    number = random.sample(range(10), 4)
+    while number[0] == 0:
+        number = random.sample(range(10), 4)
+    number = ''.join(map(str, number))
+    return number
+print(generate_random_number())
 
 
 
