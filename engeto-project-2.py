@@ -11,7 +11,6 @@ import random
 # separator
 separator = "-" * 50
 
-
 # welcome text 
 print(f"""
 Hi there!
@@ -22,7 +21,6 @@ Let's play a bulls and cows game.
 Enter a number: """
 )
 
-
 # random number generation
 def generate_random_number():
     number = random.sample(range(10), 4)
@@ -32,16 +30,16 @@ def generate_random_number():
     return number
 print(generate_random_number())
 
-
-
-
-
-
-
-
-
-
-
-
-
+# checking whether entered number is in correct format
+def check_entered_number(input):
+    if len(input) != 4 or not input.isdigit():
+        message = "Please enter a four-digit number and try again."
+    elif len(input) != len(set(input)):
+        message = "Please enter a number without duplicates and try again."
+    elif input[0] == "0":
+        message = "Please enter a number that doesn't start with 0 and try again."
+    else:
+        return True    
+    print(message, separator, sep="\n")
+    return False
 
