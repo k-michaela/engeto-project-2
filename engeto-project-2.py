@@ -43,3 +43,38 @@ def check_entered_number(input):
     print(message, separator, sep="\n")
     return False
 
+# calculation of bulls and cows based on player input 
+def bulls_and_cows_count(random_number, player_guess):
+    bulls = sum(1 for index, digit in enumerate(player_guess) if random_number[index] == digit)
+    cows = sum(1 for digit in player_guess if digit in random_number) - bulls
+    return bulls, cows
+
+# user score rating
+def evaluate_users_score(number_of_attempts):
+    messages = {
+        range(1, 6): "Wow, excellent score!",
+        range(6, 11): "Very good score!",
+        range(11, 16): "Not so bad!",
+        range(16, 21): "Could be better!",
+        range(21, 100000): "Try again and practice."
+    }
+    
+    for attempts_range, message in messages.items():
+        if number_of_attempts in attempts_range:
+            print(message)
+            break
+
+
+
+
+
+
+
+
+
+
+def game():
+    pass
+
+if __name__ == "__main__":
+    game()
